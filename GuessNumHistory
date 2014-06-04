@@ -1,0 +1,84 @@
+import java.util.Scanner;
+
+public class GuessNumHistory
+{
+	public static void main( String[]args)
+	{
+		Scanner input = new Scanner(System.in);
+		boolean KeepGoing= true;
+		int option;
+		int compNumber;
+		int userNumber;
+		int GamesWon = 0;
+		int GamesLost = 0;
+		int TotalGames = 0;
+		String continueOption;
+
+		History myHistory = new History();
+
+		System.out.println("Welcome to Guess a Number Dice Game!");
+		while(KeepGoing)
+		{
+			System.out.println("Please choose a game.");
+			System.out.println("Press 1 For a Single Dice!");
+			System.out.println("Press 2 For Double Dice!");
+		option = input.nextInt();
+		if (option == 1 || option == 2 )
+		{
+			if(option == 1)
+			{
+				FinalDice myDice = new FinalDice(1,6);
+				compNumber = FinalDice.getValue();
+				System.out.println("Please input a number from 1 - 6.");
+				userNumber = input.nextInt();
+				if(userNumber == compNumber)
+				{
+					System.out.printf("You guessed right!");
+					GamesWon++;
+				}
+				else
+				{
+					System.out.printf("You guessed wrong. The computer rolled a %d", compNumber);
+					GamesLost++;
+				}
+				TotalGames++;
+				myHistory.StoreValue(compNumber, userNumber, TotalGames);
+			}
+			else
+			{
+				Final2xDice my2Dice = new Final2xDice(1,12);
+				compNumber = my2Dice.getValue();
+				System.out.println("Please choose a number between 1 and 12");
+				userNumber = input.nextInt();
+				if(userNumber == compNumber)
+				{
+					System.out.printf("You guessed right!");
+					GamesWon++;
+				}
+				else
+				{
+					System.out.printf("You guessed wrong. The computer rolled a %d", compNumber);
+					GamesLost++;
+				}
+				TotalGames++;
+			
+				myHistory.StoreValue(compNumber, userNumber, TotalGames);
+			}
+		}
+		else
+		{
+			System.out.println("Please choose 1 or 2.");
+		}
+		System.out.println("\nWould you like to play again?\n(Y)es or (N)o?");
+		continueOption = input.next();
+		if (continueOption.toUpperCase().startsWith("N"))
+			{
+			KeepGoing = false;
+			
+			}
+		}
+		
+		System.out.printf("You Played %d Games, Won %d, Lost %d",TotalGames, GamesWon, GamesLost);
+		System.out.println(myHistory);
+	}
+}
