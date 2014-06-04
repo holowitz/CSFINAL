@@ -1,0 +1,8 @@
+public class Final2xDice extends FinalDice
+{
+	public Final2xDice(int min, int max) 
+	{
+		super(1,12);
+	}
+
+}
