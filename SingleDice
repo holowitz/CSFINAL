@@ -1,0 +1,9 @@
+public class FinalDice extends RandomNumber
+{
+	public FinalDice(int min, int max)
+	{
+		super(min,max); 
+	}
+}
+	
+	
