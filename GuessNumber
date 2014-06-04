@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class FinalGuess 
+{
+	public static void main( String[]args)
+	{
+		Scanner input = new Scanner(System.in);
+		boolean KeepGoing= true;
+		int choice;
+		int compNumber;
+		int userNumber;
+		String continueOption;
+
+		System.out.println("Welcome to Guess a Number Dice Game!");
+		while(KeepGoing)
+		{
+		System.out.println("Please choose a game.");
+		System.out.println("Press 1 For a Single Dice!");
+		System.out.println("Press 2 For Double Dice!");
+		choice = input.nextInt();
+		if (choice == 1 || choice == 2 )
+		{
+			if(choice == 1)
+			{
+				FinalDice myDice = new FinalDice(1,6);
+				compNumber = FinalDice.getValue();
+				System.out.println("Please input a number from 1 - 6.");
+				userNumber = input.nextInt();
+				if(userNumber == compNumber)
+				{
+					System.out.printf("You guessed right!", userNumber, compNumber);
+				}
+				else
+				{
+					System.out.printf("You guessed wrong. The computer rolled a %d.", compNumber);
+				}
+			}
+			else
+			{
+				Final2xDice my2Dice = new Final2xDice(1,12);
+				compNumber = my2Dice.getValue();
+				System.out.println("Please input a number from 1 - 12.");
+				userNumber = input.nextInt();
+				if(userNumber == compNumber)
+				{
+					System.out.printf("You guessed right!", userNumber, compNumber);
+				}
+				else
+				{
+					System.out.printf("You guessed wrong. The computer rolled a %d.", compNumber);
+				}
+
+			}
+		}
+		else
+		{
+			System.out.println("Please choose 1 or 2.");
+		}
+		System.out.println("\nWould you like to play again?\n(Y)es or (N)o?");
+		continueOption = input.next();
+		if (continueOption.toUpperCase().startsWith("N"))
+			{
+			KeepGoing = false;
+			}
+		}
+	}
+}
