@@ -1,0 +1,17 @@
+ public class RandomNumber 
+{
+
+	public static void main(String[] args) {
+	}
+	private static int number;
+
+public RandomNumber(int min, int max)
+{
+	number = min + (int)(Math.random() *(max- min));
+}
+public static int getValue()
+{
+	return number;
+}
+
+}
