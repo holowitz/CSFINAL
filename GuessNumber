@@ -28,7 +28,7 @@ public class FinalGuess
 				userNumber = input.nextInt();
 				if(userNumber == compNumber)
 				{
-					System.out.printf("You guessed right!", userNumber, compNumber);
+					System.out.printf("You guessed right!");
 				}
 				else
 				{
@@ -43,7 +43,7 @@ public class FinalGuess
 				userNumber = input.nextInt();
 				if(userNumber == compNumber)
 				{
-					System.out.printf("You guessed right!", userNumber, compNumber);
+					System.out.printf("You guessed right!");
 				}
 				else
 				{
